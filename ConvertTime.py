@@ -116,3 +116,4 @@ def time(timeValue, currentUnit="second", conversionUnit="minute"):
               f"Unit {conversionUnit} is unrecognized by script\n"
               f"===============================================")
         return "ERROR"
+

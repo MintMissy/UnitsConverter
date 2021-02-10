@@ -28,6 +28,7 @@ def speed(speedValue, currentUnit="m/s", conversionUnit="km/h"):
     :param conversionUnit: Convert to unit [m/s, km/h]
     :return: Speed converted to another unit
     """
+
     try:
         # Check for errors in code
         if currentUnit.lower() == conversionUnit.lower():
