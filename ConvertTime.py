@@ -1,3 +1,8 @@
+# TODO
+# second (sec)
+# minute (min)
+# hour (hr)
+
 # Errors
 class Error(Exception):
     """Base class for other exceptions"""

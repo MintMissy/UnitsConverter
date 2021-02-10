@@ -1,5 +1,3 @@
-# TODO Gigabytes, Megabytes  Megabits etc
-
 # Errors
 class Error(Exception):
     """Base class for other exceptions"""
