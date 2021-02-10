@@ -33,70 +33,31 @@ def time(timeValue, currentUnit="second", conversionUnit="minute"):
         if currentUnit.lower() == conversionUnit.lower():
             raise SameUnitsError
 
-        # Convert second
-        if currentUnit.lower() == "second":
-            if conversionUnit.lower() == "minute":
-                return timeValue / 60
-            elif conversionUnit.lower() == "hour":
-                return timeValue / 3600
-            elif conversionUnit.lower() == "day":
-                return timeValue / 86400
-            elif conversionUnit.lower() == "week":
-                return timeValue / 604800
-            else:
-                raise UnrecognisedConversionUnit
-
-        # Convert minute
+        # Convert time value to seconds
         if currentUnit.lower() == "minute":
-            if conversionUnit.lower() == "second":
-                return timeValue * 60
-            elif conversionUnit.lower() == "hour":
-                return timeValue / 60
-            elif conversionUnit.lower() == "day":
-                return timeValue / 1440
-            elif conversionUnit.lower() == "week":
-                return timeValue / 10080
-            else:
-                raise UnrecognisedConversionUnit
+            timeValue *= 60
+        elif currentUnit.lower() == "hour":
+            timeValue *= 3600
+        elif currentUnit.lower() == "day":
+            timeValue *= 86400
+        elif currentUnit.lower() == "week":
+            timeValue *= 604800
+        else:
+            raise UnrecognisedConversionUnit
 
-        # Convert hour
-        if currentUnit.lower() == "hour":
-            if conversionUnit.lower() == "second":
-                return timeValue * 3600
-            elif conversionUnit.lower() == "minute":
-                return timeValue * 60
-            elif conversionUnit.lower() == "day":
-                return timeValue / 24
-            elif conversionUnit.lower() == "week":
-                return timeValue / 168
-            else:
-                raise UnrecognisedConversionUnit
-
-        # Convert day
-        if currentUnit.lower() == "day":
-            if conversionUnit.lower() == "second":
-                return timeValue * 86400
-            elif conversionUnit.lower() == "minute":
-                return timeValue * 1440
-            elif conversionUnit.lower() == "hour":
-                return timeValue * 24
-            elif conversionUnit.lower() == "week":
-                return timeValue / 7
-            else:
-                raise UnrecognisedConversionUnit
-
-        # Convert week
-        if currentUnit.lower() == "week":
-            if conversionUnit.lower() == "second":
-                return timeValue * 604800
-            elif conversionUnit.lower() == "minute":
-                return timeValue * 10080
-            elif conversionUnit.lower() == "hour":
-                return timeValue * 168
-            elif conversionUnit.lower() == "day":
-                return timeValue * 7
-            else:
-                raise UnrecognisedConversionUnit
+        # Convert second to conversion unit
+        if conversionUnit == "second":
+            return timeValue
+        elif conversionUnit.lower() == "minute":
+            return timeValue / 60
+        elif conversionUnit.lower() == "hour":
+            return timeValue / 3600
+        elif conversionUnit.lower() == "day":
+            return timeValue / 86400
+        elif conversionUnit.lower() == "week":
+            return timeValue / 604800
+        else:
+            raise UnrecognisedConversionUnit
 
     # Check for raised errors
     except SameUnitsError:
@@ -116,4 +77,3 @@ def time(timeValue, currentUnit="second", conversionUnit="minute"):
               f"Unit {conversionUnit} is unrecognized by script\n"
               f"===============================================")
         return "ERROR"
-
