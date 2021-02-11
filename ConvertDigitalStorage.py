@@ -24,8 +24,8 @@ def digitalStorage(digitalValue, currentUnit="MB", conversionUnit="GB"):
     This function convert digital storage to another unit
 
     :param digitalValue: Digital storage variable (For example 4)
-    :param currentUnit: Current unit [bit, byte, KB, MB, GB, TB, PB]
-    :param conversionUnit: Convert to unit [bit, byte, KB, MB, GB, TB, PB]
+    :param currentUnit: Current unit [bit, byte, KB, Kb, MB, Mb, GB, Gb, TB, Tb, PB, Pb]
+    :param conversionUnit: Convert to unit [bit, byte, KB, Kb, MB, Mb, GB, Gb, TB, Tb, PB, Pb]
     :return: Digital storage converted to another unit
     """
     try:
@@ -34,57 +34,57 @@ def digitalStorage(digitalValue, currentUnit="MB", conversionUnit="GB"):
             raise SameUnitsError
 
         # Convert current unit to bits
-        if currentUnit == "byte":
-            digitalValue *= 8
-        elif currentUnit == "Kb":
+        if currentUnit == "bit" or currentUnit == "b":
+            pass
+        elif currentUnit == "Kb" or currentUnit == "Kilobit":
             digitalValue *= 1024
-        elif currentUnit == "Mb":
+        elif currentUnit == "Mb" or currentUnit == "Megabit":
             digitalValue *= 1024 ** 2
-        elif currentUnit == "Gb":
+        elif currentUnit == "Gb" or currentUnit == "Gigabit":
             digitalValue *= 1024 ** 3
-        elif currentUnit == "Tb":
+        elif currentUnit == "Tb" or currentUnit == "Terabit":
             digitalValue *= 1024 ** 4
-        elif currentUnit == "Pb":
+        elif currentUnit == "Pb" or currentUnit == "Petabit":
             digitalValue *= 1024 ** 5
-        elif currentUnit == "byte":
+        elif currentUnit == "byte" or currentUnit == "B":
             digitalValue *= 8
-        elif currentUnit == "KB":
+        elif currentUnit == "KB" or currentUnit == "Kilobyte":
             digitalValue *= 8 * 1024
-        elif currentUnit == "MB":
+        elif currentUnit == "MB" or currentUnit == "Megabyte":
             digitalValue *= 8 * 1024 ** 2
-        elif currentUnit == "GB":
+        elif currentUnit == "GB" or currentUnit == "Gigabyte":
             digitalValue *= 8 * 1024 ** 3
-        elif currentUnit == "TB":
+        elif currentUnit == "TB" or currentUnit == "Terabyte":
             digitalValue *= 8 * 1024 ** 4
-        elif currentUnit == "PB":
+        elif currentUnit == "PB" or currentUnit == "Petabyte":
             digitalValue *= 8 * 1024 ** 5
         else:
             raise UnrecognisedConversionUnit
 
         # Convert bits to another unit
-        if conversionUnit == "bit":
+        if conversionUnit == "bit" or currentUnit == "b":
             return digitalValue
-        elif conversionUnit == "Kb":
+        elif conversionUnit == "Kb" or currentUnit == "Kilobit":
             return digitalValue / 1024
-        elif conversionUnit == "Mb":
+        elif conversionUnit == "Mb" or currentUnit == "Megabit":
             return digitalValue / 1024 ** 2
-        elif conversionUnit == "Gb":
+        elif conversionUnit == "Gb" or currentUnit == "Gigabit":
             return digitalValue / 1024 ** 3
-        elif conversionUnit == "Tb":
+        elif conversionUnit == "Tb" or currentUnit == "Terabit":
             return digitalValue / 1024 ** 4
-        elif conversionUnit == "Pb":
+        elif conversionUnit == "Pb" or currentUnit == "Petabit":
             return digitalValue / 1024 ** 5
-        elif conversionUnit == "byte":
+        elif conversionUnit == "byte" or currentUnit == "B":
             return digitalValue / 8
-        elif conversionUnit == "KB":
+        elif conversionUnit == "KB" or currentUnit == "Kilobyte":
             return digitalValue / 8 / 1024
-        elif conversionUnit == "MB":
+        elif conversionUnit == "MB" or currentUnit == "Megabyte":
             return digitalValue / 8 / 1024 ** 2
-        elif conversionUnit == "GB":
+        elif conversionUnit == "GB" or currentUnit == "Gigabyte":
             return digitalValue / 8 / 1024 ** 3
-        elif conversionUnit == "TB":
+        elif conversionUnit == "TB" or currentUnit == "Terabyte":
             return digitalValue / 8 / 1024 ** 4
-        elif conversionUnit == "PB":
+        elif conversionUnit == "PB" or currentUnit == "Petabyte":
             return digitalValue / 8 / 1024 ** 5
         else:
             raise UnrecognisedConversionUnit

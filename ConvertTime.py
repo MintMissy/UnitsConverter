@@ -1,8 +1,3 @@
-# TODO
-# second (sec)
-# minute (min)
-# hour (hr)
-
 # Errors
 class Error(Exception):
     """Base class for other exceptions"""
@@ -39,9 +34,9 @@ def time(timeValue, currentUnit="second", conversionUnit="minute"):
             raise SameUnitsError
 
         # Convert time value to seconds
-        if currentUnit.lower() == "minute":
+        if currentUnit.lower() == "minute" or currentUnit.lower() == "min":
             timeValue *= 60
-        elif currentUnit.lower() == "hour":
+        elif currentUnit.lower() == "hour" or currentUnit.lower() == "hr":
             timeValue *= 3600
         elif currentUnit.lower() == "day":
             timeValue *= 86400
@@ -51,11 +46,11 @@ def time(timeValue, currentUnit="second", conversionUnit="minute"):
             raise UnrecognisedConversionUnit
 
         # Convert second to conversion unit
-        if conversionUnit == "second":
+        if conversionUnit == "second" or currentUnit.lower() == "s":
             return timeValue
-        elif conversionUnit.lower() == "minute":
+        elif conversionUnit.lower() == "minute" or currentUnit.lower() == "min":
             return timeValue / 60
-        elif conversionUnit.lower() == "hour":
+        elif conversionUnit.lower() == "hour" or currentUnit.lower() == "hr":
             return timeValue / 3600
         elif conversionUnit.lower() == "day":
             return timeValue / 86400
